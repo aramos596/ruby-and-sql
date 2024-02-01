@@ -22,19 +22,44 @@ new_company = Company.new
 new_company["name"] = "Apple"
 new_company["city"] = "Cupertino"
 new_company["state"] = "CA"
-new_company["age"] = "https://www.apple.com"
+new_company["age"] = "https://www.apple.com"   #url is age because i screwed up the table
 new_company.save
 
-puts new_company
+new_company = Company.new
+new_company["name"] = "Twitter"
+new_company["city"] = "San Francisco"
+new_company["state"] = "CA"
+new_company["age"] = "https://www.twitter.com"   #url is age because i screwed up the table
+new_company.save
+
+new_company = Company.new
+new_company["name"] = "Amazon"
+new_company["city"] = "Seattle"
+new_company["state"] = "WA"
+new_company["age"] = "https://www.twitter.com"   #url is age because i screwed up the table
+new_company.save
+
 
 puts "There are #{Company.all.count} companies"
 
 # 3. query companies table to find all row with California company
 
+cali_companies = Company.where({"state" => "CA"})
+#puts cali_companies
+
 # 4. query companies table to find single row for Apple
+
+apple = Company.where({"name" => "Apple"})[0]
+puts apple.inspect
 
 # 5. read a row's column value
 
+puts apple["age"]
+
 # 6. update a row's column value
+amazon = Company.find_by({"name" => "Amazon"})
+amazon["age"] = "https://amazon.com"
+amazon.save
 
 # 7. delete a row
+

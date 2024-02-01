@@ -21,8 +21,22 @@ Salesperson.destroy_all
 
 # 2. insert 1-2 rows in salespeople table.
 
-# 3. write code to display how many salespeople rows are in the database
+new_salesperson = Salesperson.new
 
+new_salesperson["first_name"] = "Ben"
+new_salesperson["last_name"] = "Block"
+new_salesperson["email"] = "ben.block@kellogg.northwestern.edu"
+new_salesperson.save
+
+new_salesperson = Salesperson.new
+new_salesperson["first_name"] = "Brian"
+new_salesperson["last_name"] = "Eng"
+new_salesperson["email"] = "brian.eng@kellogg.northwestern.edu"
+new_salesperson.save
+
+
+# 3. write code to display how many salespeople rows are in the database
+puts "Salespeople: #{Salesperson.all.count}"
 # ---------------------------------
 # Salespeople: 2
 
@@ -30,6 +44,12 @@ Salesperson.destroy_all
 
 # CHALLENGE:
 # 5. write code to display each salesperson's full name
+salespeople = Salesperson.all
+
+for person in salespeople
+    first_name= person["first_name"]
+    puts "#{first_name}"
+end
 
 # ---------------------------------
 # Salespeople: 2
